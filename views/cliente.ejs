@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/resources/css/cruds.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/resources/PROYECTO IMAGENES/toppng.com-ocean-water-circle-ocean-aesthetic-1024x1024.png">
+</head>
+
+<body>
+    <%- include('navbar_admin') %><br>
+        <h1><span>CLIENTES</span></h1>
+        <div class="container mt-2">
+            <div class="container d-flex justify-content-center" style="padding-bottom: 10px;">
+                <a href="/create_cliente" class="btn btn-success ml-2 mt-4"><box-icon type='solid'
+                        name='plus-circle'></box-icon></box-icon> <br>AGREGAR NUEVO CLIENTE</a>
+                <a href="/ubicacion" class="btn btn-success ml-2 mt-4"><box-icon type='solid'
+                        name='plus-circle'></box-icon></box-icon> <br>AGREGAR UBICACION</a>
+                <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+            </div>
+        </div>
+        
+        <div class="container">
+            <input type="text" id="searchInput" placeholder="Buscar por nombre..." class="form-control">
+            <table class="table table-dark ">
+                <thead class="text-center">
+                    <tr class="bg-primary text-white">
+                        <!-- Cliente -->
+                        <th scope="col" hidden>IDCliente</th>
+                        <th scope="col">Nombre Persona</th>
+                        <th scope="col">Ubicacion</th>
+                        <th scope="col">Que Necesita</th>
+                        <th scope="col" hidden>Status Cliente</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <% console.log(results); %>
+                        <% results.forEach((row)=> { %>
+                            <tr>
+                                <td hidden>
+                                    <%= row.IDCLIENTE %>
+                                </td>
+                                <td>
+                                    <%= row.NOMBRE_COMPLETO %>
+                                </td>
+                                <td>
+                                    <%= row.UBICACION_DETALLES_EXTRAS %>
+                                </td>
+                                <td>
+                                    <%= row.QUE_NECESITA %>
+                                </td>
+                                <td hidden>
+                                    <%= row.STATUS %>
+                                </td>
+                                <td>
+                                    <a href="/edit_cliente/<%= row.IDCLIENTE %>/<%= row.IDPERSONA %>/<%= row.IDUBICACION %>"
+                                        class="btn btn-info mt-1 w-100">
+                                        <box-icon type='solid' name='edit'></box-icon><br> Editar
+                                    </a>
+                                    <a href="/delete_cliente/<%= row.IDCLIENTE %>" class="btn btn-danger mt-1 w-100">
+                                        <box-icon type='solid' name='x-circle'></box-icon> <br>Eliminar</a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+
+        <script>
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+                let input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("searchInput");
+                filter = input.value.toUpperCase();
+                table = document.querySelector(".table");
+                tr = table.getElementsByTagName("tr");
+            
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1]; // Asume que el nombre del cliente está en la segunda columna. Cambia el índice si es necesario.
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }       
+                }
+            });
+            </script>
+</body>
+
+</html>

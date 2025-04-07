@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALVA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="resources/css/login.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/resources/PROYECTO IMAGENES/toppng.com-ocean-water-circle-ocean-aesthetic-1024x1024.png">
+</head>
+
+<body>
+    <div id="logletters">
+        <h1 style="font-family: 'Poppins', sans-serif;">AFOROS Y EQUIPOS MALVA</h1>
+    </div>
+    <div id="principal" class="login-form">
+        <div id="img_fondo">
+            <div id="user_cuadr">
+                <div id="inner_div_user_cuadr">
+
+                </div>
+            </div>
+
+            <div id="img_centro">
+                <div id="cir_middle">
+
+                </div>
+            </div>
+            <div id="cuadrosparalogin">
+                <h2 style="margin: 0px; font-family: 'Poppins', sans-serif;">Iniciar Sesión</h2>
+
+                <!-- -------------------------------- -->
+
+                <form action="/auth" method="POST">
+                    <h3
+                        style="font-size: 24px; margin:0px; font-family: 'Poppins', sans-serif; font-style: normal; color: #FFFFFF;">
+                        Usuario</h3>
+                    <input type="text" id="nombre" name="nombre" placeholder="Usuario" required>
+                    <h3
+                        style="font-size: 24px; margin-top: 10px;margin-bottom: 0px; font-family: 'Poppins', sans-serif; font-style: normal; color: #FFFFFF;">
+                        Contraseña</h3>
+                    <input type="password" id="pass" name="password" placeholder="Contraseña"><br>
+                    <input type="submit" class="btn btn-success" value="Ingresar" style="margin-top: 10px; ">
+                </form>
+
+                <!-- -------------------------------- -->
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if (typeof alert !="undefined" ) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: '<%= timer %>'
+            }).then(() => {
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+        <% } %>
+
+</body>
+
+</html>

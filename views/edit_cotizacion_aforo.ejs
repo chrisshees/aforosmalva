@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cotizacion Aforo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="/resources/css/cruds.css">
+    <link rel="icon" href="/resources/PROYECTO IMAGENES/toppng.com-ocean-water-circle-ocean-aesthetic-1024x1024.png">
+
+</head>
+
+<body>
+    <%- include('navbar_admin') %>
+    <% if (cotizacionAforoEdit) { %>
+        <div class="container mt-4">
+            <div class="card border-secondary">
+                <div class="card-header bg-info text-white">EDITAR COTIZACIÓN DE AFORO</div>
+                <div class="card-body">
+                    <form action="/update_cotiAforo" method="POST">
+                        <input id="IDCOTIZACIONAFORO" name="IDCOTIZACIONAFORO" value="<%= cotizacionAforoEdit.IDCOTIZACIONAFORO %>" hidden>
+                        <div class="mb-3">
+                            <label for="IDCLIENTE" class="form-label">Cliente</label>
+                            <select name="IDCLIENTE" id="IDCLIENTE" class="form-select" aria-label="Cliente" required>
+                                <option value="" selected>Selecciona un cliente</option>
+                                <% clientes.forEach((cliente)=> { %>
+                                    <option value="<%= cliente.IDCLIENTE %>" <%= cliente.IDCLIENTE === cotizacionAforoEdit.IDCLIENTE ? "selected" : "" %>>
+                                        <%= cliente.NOMBRE_CLIENTE %>
+                                    </option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="GASTO_DIESEL" class="form-label">Gasto de Diesel</label>
+                            <input type="number" class="form-control" id="GASTO_DIESEL" name="GASTO_DIESEL" step="0.01" tabindex="1" required value="<%= cotizacionAforoEdit.GASTO_DIESEL %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="PROFUNDIDAD_POZO" class="form-label">Profundidad del Pozo</label>
+                            <input type="number" class="form-control" id="PROFUNDIDAD_POZO" name="PROFUNDIDAD_POZO" step="0.01" tabindex="2" required value="<%= cotizacionAforoEdit.PROFUNDIDAD_POZO %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="CANTIDAD_AGUA" class="form-label">Cantidad de Agua</label>
+                            <input type="number" class="form-control" id="CANTIDAD_AGUA" name="CANTIDAD_AGUA" step="0.01" tabindex="3" required value="<%= cotizacionAforoEdit.CANTIDAD_AGUA %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="PRECIO_FINAL_TOTAL" class="form-label">Precio Total</label>
+                            <input type="number" class="form-control" id="PRECIO_FINAL_TOTAL" name="PRECIO_FINAL_TOTAL" step="0.01" tabindex="4" required value="<%= cotizacionAforoEdit.PRECIO_FINAL_TOTAL %>">
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-success" tabindex="5">Guardar</button>
+                            <a href="/cotizacion_aforo" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>        
+        <% } %>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/resources/PROYECTO IMAGENES/historiales.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos todo el alto de la ventana del navegador */
+  }
+  
+  .container {
+    max-height: 70vh; /* Ajusta esto a la altura que desees */
+    overflow-y: auto;
+  }
+
+  h1{
+    letter-spacing: 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+h1 span {
+    text-shadow: 0.3vw 0.3vw 0px #4f6562, 
+                 -0.3vw -0.3vw 0px #01937C,
+                 0.3vw -0.3vw 0px #2D9596,
+                 -0.3vw 0.3vw 0px #01937C;
+    color: #fff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.2em;
+    border-radius: 15px;
+    font-size: 13.6vw; /* Ajusta este valor según lo que necesites */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección del flujo a vertical */
+    justify-content: center;
+    align-items: center; /* Centramos los elementos horizontalmente */
+    height: 40vh;
+    
+}
+
+.button-container a {
+    position: relative;
+    padding: 20px 50px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+    margin-top: 20px; /* Ajustamos el margen entre los botones */
+    border-radius: 15px;
+}
+
+.button-container a span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
+
+.button-container a .liquid {
+    position: absolute;
+    left: 0;
+    top: -50%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(180deg, #2D9596, #9AD0C2);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+    transition: top 0.5s;
+}
+
+.button-container a:hover .liquid {
+    top: -100%;
+}
+
+.button-container a .liquid::before,
+.button-container a .liquid::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+}
+
+.button-container a .liquid::before {
+    border-radius: 45%;
+    background: rgba(20, 20, 20, 1);
+    animation: animate 5s linear infinite;
+}
+
+.button-container a .liquid::after {
+    border-radius: 40%;
+    background: rgba(20, 20, 20, 0.5);
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
+}
+
+.btn box-icon {
+    transition: transform 0.3s ease-in-out;
+}
+.btn:hover box-icon {
+    transform: scale(1.5);
+}
+

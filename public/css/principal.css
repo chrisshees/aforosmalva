@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-image: url('/resources/PROYECTO IMAGENES/waterwell.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos todo el alto de la ventana del navegador */
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.big-text {
+    font-size: 18vw;
+    text-shadow: 0.02em 0.02em 0px #4f6562, 
+                 -0.02em -0.02em 0px #01937C,
+                 0.02em -0.02em 0px #2D9596,
+                 -0.02em 0.02em 0px #01937C;
+    margin-bottom: 0;
+    line-height: 0.8;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+}
+
+.small-text {
+    font-size: 4vw;
+    text-shadow: 0.02em 0.02em 0px #4f6562, 
+                 -0.02em -0.02em 0px #01937C,
+                 0.02em -0.02em 0px #2D9596,
+                 -0.02em 0.02em 0px #01937C;
+    color: #0d3226;
+    margin-top: 0;
+    line-height: 0.8;
+    font-family: 'Poppins', sans-serif;
+}
+
